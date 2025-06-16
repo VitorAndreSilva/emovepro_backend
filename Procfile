@@ -1,0 +1,1 @@
+web: pdm run gunicorn emovepro.wsgi
