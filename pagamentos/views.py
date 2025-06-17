@@ -3,7 +3,8 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from django.conf import settings
+#from django.conf import settings
+import os
 import requests
 import mercadopago
 import uuid
@@ -11,7 +12,8 @@ import uuid
 @csrf_exempt
 def paymentCard(request):
     if request.method == "POST":
-        sdk = mercadopago.SDK("APP_USR-8917172438840155-032420-37c3b9d5fd56e10fe755db9f2918f13d-7373621")
+        #sdk = mercadopago.SDK("APP_USR-8917172438840155-032420-37c3b9d5fd56e10fe755db9f2918f13d-7373621")
+        sdk = mercadopago.SDK(os.getenv("ACCESS_TOKEN"))
         request_options = mercadopago.config.RequestOptions()
         request_options.custom_headers = {
             'x-idempotency-key': str(uuid.uuid4())
@@ -51,7 +53,7 @@ def oauth(request):
             "client_id" : "",
             "client_secret": "",
             "code": code,
-            "redirect_uri": "http://localhost:8000/oauth",
+            "redirect_uri": "https://emovepro-backend.onrender.com/oauth",
         })
     dados = response.json()
     request.user.seller_id = dados["user_id"]
