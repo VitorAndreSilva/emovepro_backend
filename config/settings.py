@@ -156,3 +156,7 @@ SPECTACULAR_SETTINGS = {
     "DESCRIPTION": "Prototipagem de API para o projeto E-Move",
     "VERSION": "1.0.0"
 }
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:5173",
+]
