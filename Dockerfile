@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
 COPY pyproject.toml pdm.lock* /app/
 RUN pip install --no-cache-dir pdm
 RUN pdm config -l
-RUN pdm install --without=dev
+RUN pdm lock --refresh && pdm install --without=dev
 
 COPY . /app
 
