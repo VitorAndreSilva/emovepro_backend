@@ -1,1 +1,1 @@
-web: pdm run gunicorn emovepro.wsgi
+web: pdm run gunicorn config.wsgi
