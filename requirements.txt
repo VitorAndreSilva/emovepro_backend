@@ -5,6 +5,7 @@ asgiref==3.8.1
 attrs==25.3.0
 certifi==2025.6.15
 charset-normalizer==3.4.2
+dj-database-url>=3.0.0
 django==5.2.3
 django-cors-headers==4.7.0
 django-filter==25.1
