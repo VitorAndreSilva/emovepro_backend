@@ -1,1 +1,0 @@
-web: pdm run gunicorn config.wsgi
