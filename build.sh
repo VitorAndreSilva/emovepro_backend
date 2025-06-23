@@ -5,11 +5,15 @@ set -o errexit
 # Atualiza o pip
 pip install --upgrade pip
 
+# Instala o pdm
+pip install pdm
+
 # Instala as dependências
-pip install -r requirements.txt
+#pip install -r requirements.txt
+pdm install
 
 # Coleta os arquivos estáticos
-python manage.py collectstatic --no-input
+pdm run python manage.py collectstatic --no-input
 
 # Aplica as migrações
-python manage.py migrate
+pdm run python manage.py migrate
