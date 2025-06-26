@@ -20,7 +20,7 @@ from drf_spectacular.views import (
 # Views
 from emovepro.views import CategoriaViewSet, MarcaViewSet, ProdutoViewSet, CompraViewSet
 from usuario.views import UsuarioViewSet
-from pagamentos.views import paymentCard, oauth, paymentPix
+from pagamentos.views import paymentCard, oauth, paymentPix, savedCard
 
 # Inicialização do router:
 router = DefaultRouter()
@@ -50,7 +50,8 @@ urlpatterns = [
     # Pagamento
     path('payment/', include([
         path("card/", paymentCard),
-        path("pix/", paymentPix)
+        path("pix/", paymentPix),
+        path("saved/", savedCard)
     ])),
     path('oauth/', oauth)
 ]
